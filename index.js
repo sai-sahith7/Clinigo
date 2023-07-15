@@ -16,7 +16,6 @@ app.get('/', (req, res) => {
     res.send('API is up and running !!');
 });
 
-// mongoose.connect(process.env.MONGO_URI, () => console.log('Connected!!'));
-mongoose.connect(process.env.MONGO_URI);
+mongoose.connect(process.env.MONGO_URI).then(() => console.log("Connected to DB")).catch(err => console.log(err));
 
-app.listen(process.env.PORT, () => console.log("run server " + process.env.PORT));
+app.listen(process.env.PORT, () => console.log("Server running on port " + process.env.PORT));
